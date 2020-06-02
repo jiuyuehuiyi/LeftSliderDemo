@@ -13,7 +13,7 @@ let LSLeftSlipCriticalVelocity: CGFloat = 800
 /// 左滑手势触发距离
 let LSLeftSlipLeftSlipPanTriggerWidth: CGFloat = 50
 
-class WHLeftSlideManager: UIPercentDrivenInteractiveTransition {
+open class WHLeftSlideManager: UIPercentDrivenInteractiveTransition {
     
     weak var mainVC: UIViewController!
     weak var leftVC: UIViewController!
@@ -63,7 +63,7 @@ class WHLeftSlideManager: UIPercentDrivenInteractiveTransition {
      *    @param    mainViewController  主控制器
      *    @param    shouldMove  主视图是否跟随移动
      */
-    func set(leftViewController: UIViewController, leftViewWidth: CGFloat = scaleFor(width: 310), mainViewController: UIViewController, shouldMove: Bool = true) {
+    open func set(leftViewController: UIViewController, leftViewWidth: CGFloat = scaleFor(width: 310), mainViewController: UIViewController, shouldMove: Bool = true) {
         self.leftVC = leftViewController
         self.mainVC = mainViewController
         self.leftViewWidth = leftViewWidth
@@ -180,7 +180,7 @@ class WHLeftSlideManager: UIPercentDrivenInteractiveTransition {
     }
     
     //MARK:- —————— UIGestureRecognizerDelegate ——————
-    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+    public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         if self.isShowLeft {
             return true
         }
@@ -208,36 +208,36 @@ class WHLeftSlideManager: UIPercentDrivenInteractiveTransition {
 
 }
 
-func scaleFor(width: CGFloat) -> CGFloat {
+public func scaleFor(width: CGFloat) -> CGFloat {
     return ((width)*(UIScreen.main.bounds.size.width/375))
 }
 
 extension WHLeftSlideManager: UIViewControllerTransitioningDelegate, UIGestureRecognizerDelegate, UIViewControllerAnimatedTransitioning {
     
     //MARK:- —————— UIViewControllerTransitioningDelegate ——————
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         self.isPresent = true
         return self
     }
     
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         self.isPresent = false
         return self
     }
     
-    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+    public func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         return self.interactive ? self : nil
     }
     
-    func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+    public func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         return self.interactive ? self : nil
     }
     
-    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+    public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.3
     }
     
-    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+    public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         if self.isPresent {
             
             var toView: UIView? = nil
