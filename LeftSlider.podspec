@@ -19,7 +19,7 @@ Pod::Spec.new do |spec|
   spec.requires_arc = true
   
   spec.source       = { :git => "https://github.com/jiuyuehuiyi/LeftSliderDemo.git", :tag => "#{spec.version}" }
-  spec.source_files  = "TestLeftSliderDemoForOC/LeftSliderManager"
+  spec.source_files  = "TestLeftSliderDemoForOC/TestLeftSliderDemoForOC/LeftSliderManager"
 
 
 end
