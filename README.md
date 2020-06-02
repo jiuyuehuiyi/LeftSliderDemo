@@ -8,7 +8,7 @@ pod 'LeftSlider', '~> 0.0.1'
 
 # [LeftSliderSwift](http://cocoapods.org/pods/LeftSliderSwift)
 
-pod 'LeftSliderSwift', '~> 0.0.1'
+pod 'LeftSliderSwift', '~> 0.0.3'
 
 ```
     WHLeftSlideManager.shared.set(leftViewController: leftVC, mainViewController: self)

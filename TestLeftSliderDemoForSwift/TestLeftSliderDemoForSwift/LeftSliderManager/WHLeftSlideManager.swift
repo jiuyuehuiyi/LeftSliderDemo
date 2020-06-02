@@ -83,7 +83,7 @@ open class WHLeftSlideManager: UIPercentDrivenInteractiveTransition {
     }
     
     /** 显示菜单 */
-    func show() {
+    open func show() {
         if !self.isShowLeft {
             self.leftVC.modalPresentationStyle = .fullScreen
             self.mainVC.present(self.leftVC, animated: true, completion: nil)
@@ -93,7 +93,7 @@ open class WHLeftSlideManager: UIPercentDrivenInteractiveTransition {
     }
 
     /** 取消显示菜单 */
-    @objc func dismiss() {
+    @objc open func dismiss() {
         self.leftVC.dismiss(animated: true, completion: nil)
     }
     
@@ -317,7 +317,7 @@ extension WHLeftSlideManager: UIViewControllerTransitioningDelegate, UIGestureRe
                     if (self.shouldMove) {
                         toView.frame = CGRect(x: 0, y: 0, width: toView.frame.size.width, height: toView.frame.size.height)
                     }
-                    self.tapView.alpha = 1.0
+                    self.tapView.alpha = 0.0
                 }
                 
                 // 动画完成block

@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "LeftSliderSwift"
-  spec.version      = "0.0.2"
+  spec.version      = "0.0.3"
   spec.summary      = "Easy left slider menu manger write by swift."
 
   spec.description  = <<-DESC
